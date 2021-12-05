@@ -67,4 +67,59 @@ public String replaceOneStudent(@PathVariable int id, @RequestBody Student stude
 - POSTMAN is an application used for **API testing**.
 - It is an HTTP client that tests HTTP requests, utilizing a graphical user interface, through which we obtain different types of responses that need to be subsequently validated.
 
+## JUnit test for REST API
+Add Dependency (pom.xml)
+```html
+<dependency>
+  <groupId>org.junit.jupiter</groupId>
+  <artifactId>junit-jupiter-engine</artifactId>
+</dependency>
+```
+### Test Class setup
+```java
+@SpringbootTest
+@AutoConfigureMockMvc
+public class TestController {
+  //@Autowired any necessary repositories
+  
+  @Autowired
+  private MockMvc mockMvc;
+  
+  // Test code 
+      ...
+}
+```
+### Test it was done successfully
+1. getStatus() <br>
+`int status = mvcResult.getResponse().getStatus();`
+2. if status is 200, then OK <br>
+`assertEquals(status, 200);`
+
+
+
+### HTTML method test
+1. test if HTTP GET method - reads a collection of students
+    - retrieve the JSON value > convert in into java data type: Student[] > check the length of Student array 
+2. test if HTTP GET method - reads a single of students
+3. test if HTTP POST method - adds a new student
+4. test if HTTP POST method - adds a new collection of student
+5. test if HTTP PUT method - edits a specific student
+6. test if HTTP DELETE method - deletes a specific student
+7. test if HTTP DELETE method - deletes all data in Students
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
